@@ -9,31 +9,47 @@ class linked_list:
         
     def append(self,data):
         new_node = node(data)
-        cur = self.head
-        while cur.next != None:
-            cur = cur.next
-        cur.next = new_node
+        if self.head == None:
+            self.head = new_node
+        else:
+            cur = self.head
+            while cur.next != None:
+                cur = cur.next
+            cur.next = new_node
     
     def len(self):
         total = 0
         cur = self.head
-        while cur.next!= None:
+        while cur != None:
             total += 1
             cur = cur.next
         return total
         
     def display(self):
-        list = []
+        list_ = []
         cur = self.head
-        while cur.next != None:
-            list.append(cur.data)
-        return list
+        while cur != None:
+            list_.append(cur.data)
+            cur = cur.next
+        return list_
         
-    L1 = linked_list()
-    L1.append(1)
-    L1.append(2)
-    L1.append(3)
-    L1.append(4)
-    L1.append(5)
-    print(L1.len())
-    print(L1.display())
+    def search(self,val):
+        cur = self.head
+        while cur != None:
+            if cur.data == val:
+                return True
+            else:
+                cur = cur.next
+        return False
+            
+            
+        
+        
+L1 = linked_list()
+L1.append(1)
+L1.append(2)
+L1.append(3)
+L1.append(4)
+print(L1.len())
+print(L1.display())
+print(L1.search(5))
