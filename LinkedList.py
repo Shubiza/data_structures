@@ -5,7 +5,7 @@ class node:
     
 class linked_list:
     def __init__(self):
-        selfdgryg.head  = None
+        self.head  = None
         
     def append(self,data):
         new_node = node(data)
@@ -16,7 +16,7 @@ class linked_list:
             while cur.next != None:
                 cur = cur.next
             cur.next = new_node
-    vhjhf
+    
     def len(self):
         total = 0
         cur = self.head
@@ -37,7 +37,7 @@ class linked_list:
         cur = self.head
         while cur != None:
             if cur.data == val:
-                gcghdghreturn True
+                return True
             else:
                 cur = cur.next
         return False
@@ -45,3 +45,11 @@ class linked_list:
             
         
         
+L1 = linked_list()
+L1.append(1)
+L1.append(2)
+L1.append(3)
+L1.append(4)
+print(L1.len())
+print(L1.display())
+print(L1.search(5))
