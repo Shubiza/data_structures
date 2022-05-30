@@ -58,6 +58,12 @@ class Linked_list:
             cur = cur.next
         return cur.data
 
+    def remove_from_first(self):
+        cur = self.head
+        self.head = cur.next
+        
+
+
             
         
         
@@ -76,6 +82,16 @@ class Stack:
 
     def display(self):
         print self.stack.display()
+
+
+class Queue:
+    def __init__(self):
+        self.queue = Linked_list()
+
+    def enqueue(self,data):
+        self.queue.append(data)
+
+    def dequeue(self):
 
     
 stack1 = Stack()
