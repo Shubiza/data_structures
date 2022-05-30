@@ -1,14 +1,14 @@
-class node:
+class Node:
     def __init__(self,data = None):
         self.data = data
         self.next = None
     
-class linked_list:
+class Linked_list:
     def __init__(self):
         self.head  = None
         
     def append(self,data):
-        new_node = node(data)
+        new_node = Node(data)
         if self.head == None:
             self.head = new_node
         else:
@@ -42,14 +42,65 @@ class linked_list:
                 cur = cur.next
         return False
             
+    def remove_from_last(self):
+        cur = self.head
+        if self.head == None:
+            return None
+        else:
+            while cur.next.next !=  None:
+                cur = cur.next
+            pop = cur.next
+            cur.next = None
+            
+    def return_last_node(self):
+        cur = self.head             
+        while cur.next != None:
+            cur = cur.next
+        return cur.data
+
+    def remove_from_first(self):
+        cur = self.head
+        self.head = cur.next
+        
+
+
             
         
         
-L1 = linked_list()
-L1.append(1)
-L1.append(2)
-L1.append(3)
-L1.append(4)
-print(L1.len())
-print(L1.display())
-print(L1.search(5))
+class Stack:
+    def __init__(self):
+        self.stack = Linked_list()
+
+    def push(self,data):
+        self.stack.append(data)
+
+    def pop(self):
+        return self.stack.remove_from_last()
+
+    def top(self):
+        return self.stack.return_last_node()
+
+    def display(self):
+        print self.stack.display()
+
+
+class Queue:
+    def __init__(self):
+        self.queue = Linked_list()
+
+    def enqueue(self,data):
+        self.queue.append(data)
+
+    def dequeue(self):
+
+    
+stack1 = Stack()
+stack1.push(2)
+stack1.push(34)
+stack1.push(78)
+stack1.push(4)
+stack1.push(3)
+stack1.display()
+stack1.pop()
+stack1.display()
+
